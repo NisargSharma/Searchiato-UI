@@ -1,0 +1,442 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200220.141352.6084.0.001.json",
+    "dumpEventTime": "2020-02-20T14:13:52Z",
+    "dumpEventTimeStamp": "1582188232814",
+    "processId": 6084,
+    "cwd": "E:\\s2p\\angular\\miniProject\\mini-project",
+    "commandLine": [
+      "node",
+      "C:\\Users\\Nisarg Sharma\\AppData\\Roaming\\npm\\\\node_modules\\@angular\\cli\\bin\\ng",
+      "serve",
+      "--open"
+    ],
+    "nodejsVersion": "v12.14.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.14.1",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.14.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.17763",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i3-3110M CPU @ 2.40GHz",
+        "speed": 2395,
+        "user": 290218,
+        "nice": 0,
+        "sys": 412531,
+        "idle": 6529171,
+        "irq": 33562
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-3110M CPU @ 2.40GHz",
+        "speed": 2395,
+        "user": 285312,
+        "nice": 0,
+        "sys": 331062,
+        "idle": 6615281,
+        "irq": 18578
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-3110M CPU @ 2.40GHz",
+        "speed": 2395,
+        "user": 303234,
+        "nice": 0,
+        "sys": 362265,
+        "idle": 6566156,
+        "irq": 4734
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-3110M CPU @ 2.40GHz",
+        "speed": 2395,
+        "user": 328671,
+        "nice": 0,
+        "sys": 302265,
+        "idle": 6600718,
+        "irq": 3750
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "DESKTOP-NRTUL4L"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff6e21d1759",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e21d5b7c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e21d4b38",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e22c433b",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2ac8c5e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2ab0ca1",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e297e56c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2986671",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e297bcd3",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e297a4a4",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e299b775",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2707a49",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2ef463d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2ec3b65",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2ec3931",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2e6d57c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2e741cc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2e741cc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2ec3432",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2e90c9b",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2e7166c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e29d6ce0",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e29d6dd3",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e29d71b2",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e29ba9e5",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e233e171",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e233df9e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e231cdc2",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e236e524",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e236af7c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e228c8a2",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e22ea8b3",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e21a674c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6e2fa7728",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff8b5797974",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff8b84fa271",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 309301248,
+    "totalCommittedMemory": 309301248,
+    "usedMemory": 299161608,
+    "availableMemory": 1845007256,
+    "memoryLimit": 2144337920,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 1048576,
+        "committedMemory": 1048576,
+        "capacity": 1047488,
+        "used": 1047464,
+        "available": 24
+      },
+      "old_space": {
+        "memorySize": 226603008,
+        "committedMemory": 226603008,
+        "capacity": 225959728,
+        "used": 221236264,
+        "available": 4723464
+      },
+      "code_space": {
+        "memorySize": 3833856,
+        "committedMemory": 3833856,
+        "capacity": 3490336,
+        "used": 3440384,
+        "available": 49952
+      },
+      "map_space": {
+        "memorySize": 7344128,
+        "committedMemory": 7344128,
+        "capacity": 7336240,
+        "used": 3416160,
+        "available": 3920080
+      },
+      "large_object_space": {
+        "memorySize": 69586944,
+        "committedMemory": 69586944,
+        "capacity": 69438640,
+        "used": 69438640,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 622592,
+        "committedMemory": 622592,
+        "capacity": 550400,
+        "used": 550400,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047488,
+        "used": 0,
+        "available": 1047488
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 55.718,
+    "kernelCpuSeconds": 17.218,
+    "cpuConsumptionPercent": 0.803083,
+    "maxRss": 531443712,
+    "pageFaults": {
+      "IORequired": 391326,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 6085,
+      "writes": 9
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=::": "::\\",
+    "=C:": "C:\\Users\\Nisarg Sharma",
+    "=E:": "E:\\s2p\\angular\\miniProject\\mini-project",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\Nisarg Sharma\\AppData\\Roaming",
+    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
+    "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+    "ChocolateyLastPathUpdate": "132236331796822631",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-NRTUL4L",
+    "ComSpec": "C:\\Windows\\system32\\cmd.exe",
+    "dp0": "C:\\Users\\Nisarg Sharma\\AppData\\Roaming\\npm\\",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "GOOGLE_API_KEY": "no",
+    "GOOGLE_DEFAULT_CLIENT_ID": "no",
+    "GOOGLE_DEFAULT_CLIENT_SECRET": "no",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\Nisarg Sharma",
+    "LOCALAPPDATA": "C:\\Users\\Nisarg Sharma\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-NRTUL4L",
+    "NUMBER_OF_PROCESSORS": "4",
+    "OneDrive": "C:\\Users\\Nisarg Sharma\\OneDrive",
+    "OS": "Windows_NT",
+    "Path": "C:\\Users\\Nisarg Sharma\\AppData\\Roaming\\npm;C:\\Program Files\\nodejs\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\Git\\cmd;C:\\Users\\Nisarg Sharma\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\;C:\\Users\\Nisarg Sharma\\AppData\\Local\\Programs\\Python\\Python38-32\\;C:\\Users\\Nisarg Sharma\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Nisarg Sharma\\AppData\\Roaming\\npm",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 58 Stepping 9, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "3a09",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\Windows",
+    "TEMP": "C:\\Users\\NISARG~1\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\NISARG~1\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DESKTOP-NRTUL4L",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-NRTUL4L",
+    "USERNAME": "Nisarg Sharma",
+    "USERPROFILE": "C:\\Users\\Nisarg Sharma",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\Windows",
+    "_prog": "node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\System32\\bcrypt.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\winmmbase.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\System32\\winrnr.dll",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\system32\\wshbth.dll",
+    "C:\\Windows\\System32\\rasadhlp.dll",
+    "C:\\Windows\\System32\\fwpuclnt.dll"
+  ]
+}
