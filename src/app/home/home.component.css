@@ -1,5 +1,159 @@
+body {
+    overflow-x: hidden;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    -webkit-appearance: none;
+    z-index: 1000;
+}
+
+img,
+.navbar-nav,
+.navbar-toggler {
+    cursor: pointer;
+}
+
+.navbar-brand {
+    margin: 0;
+    float: left;
+}
+
+.nav-item {
+    margin-top: 10px;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: all 200ms linear;
+    position: relative;
+    font-size: 17px;
+}
+
+.nav-item:hover .nav-link {
+    color: #3c5afd !important;
+}
+
+.nav-link {
+    position: relative;
+    padding: 5px 0 !important;
+    display: inline-block;
+    color: #212121 !important;
+    letter-spacing: 1px;
+}
+
+.nav-item:after {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    content: '';
+    background-color: #3c5afd;
+    opacity: 0;
+    transition: all 200ms linear;
+}
+
+.nav-item:hover:after {
+    bottom: 0;
+    opacity: 1;
+}
+
+.nav-item.active:hover:after {
+    opacity: 0;
+}
+
+.navbar-toggler {
+    float: right;
+    border: none;
+    padding-right: 0;
+}
+
+.navbar-toggler:active,
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    width: 24px;
+    height: 17px;
+    background-image: none;
+    position: relative;
+    border-bottom: 1px solid #000;
+    transition: all 300ms linear;
+}
+
+.navbar-toggler-icon:after,
+.navbar-toggler-icon:before {
+    width: 24px;
+    position: absolute;
+    height: 1px;
+    background-color: #000;
+    top: 0;
+    left: 0;
+    content: '';
+    z-index: 2;
+    transition: all 300ms linear;
+}
+
+.navbar-light .navbar-toggler-icon:after {
+    top: 8px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    border-color: transparent;
+}
+
+@media (max-width: 767px) {
+    .nav-item:after {
+        display: none;
+    }
+    .nav-item::before {
+        position: absolute;
+        display: block;
+        top: 10px;
+        left: 0;
+        content: "";
+        border: none;
+        vertical-align: 0;
+    }
+}
+
+.footer {
+    height: 80px;
+    width: 100%;
+    max-height: 80px;
+    max-width: 100%;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #33393C;
+}
+
+.footer-text {
+    text-align: center;
+    padding-top: 30px;
+    color: #ffffff;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    -webkit-letter-spacing: 0;
+    -moz-letter-spacing: 0;
+    -ms-letter-spacing: 0;
+    letter-spacing: 0;
+}
+
+
+/* 
 .Main {
-    content : "";
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -9,66 +163,18 @@
     height: 100%;
     z-index: 9999;
 }
-.vectorimg{
+
+.vectorimg {
     position: absolute;
-    /* float: right; */
     height: 62%;
     top: 20%;
     left: 50%;
     bottom: 30%;
 }
-.overimg{
-        position: absolute;
-        height: 65%;
-        z-index: -999;
-        left: 50%;
 
-}
-/* Navbar code */
-    .nav-bar {
-        height: 60px;
-        background: white;
-    }
-
-    .nav-container {
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    nav ul li {
-        float: left;
-        position: relative;
-    }
-    nav ul li a,
-    nav ul li a:visited {
-        display: block;
-        padding: 0 20px;
-        line-height: 60px;
-        background: white;
-        color:rgba(59, 56, 56, 0.801);
-        font-weight:bold;
-        text-decoration: none;
-        RIGHT: -29%;
-        POSITION: relative
-    }
-    nav ul li a:hover,
-    nav ul li a:visited:hover {
-        border-bottom:solid #3C5AFD;
-        color: #3C5AFD;
-    }
-    nav ul li a:not(:only-child):after,
-    nav ul li a:visited:not(:only-child):after {
-        padding-left: 4px;
-        content: ' ▾';
-    }
-    nav ul li ul li {
-        min-width: 190px;
-    }
-    nav ul li ul li a {
-        padding: 15px;
-        line-height: 20px;
-    }
+.overimg {
+    position: absolute;
+    height: 65%;
+    z-index: -999;
+    left: 50%;
+} */
