@@ -9,6 +9,9 @@ import { SignupComponent } from './signup/signup.component';
 import { ContactComponent } from './contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card'; 
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule, MatGridList } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
@@ -30,6 +33,9 @@ import { SearchComponent } from './search/search.component';
      ReactiveFormsModule,
      BrowserAnimationsModule,
      MatInputModule,
+     MatCardModule,
+     MatListModule,
+     MatGridListModule,
      HttpClientModule,
   ],
   providers: [],

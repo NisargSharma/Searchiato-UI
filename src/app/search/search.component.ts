@@ -13,7 +13,8 @@ export class SearchComponent implements OnInit {
   constructor(private sservice: SearchService, private router: Router) { }
   
   searchForm = new FormGroup({
-    query: new FormControl('', [Validators.required])
+    category: new FormControl('', [Validators.required]),
+    query: new FormControl('', [Validators.required]),
   });
 
   search() {

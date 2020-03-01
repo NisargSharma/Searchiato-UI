@@ -1,3 +1,12 @@
+body {
+    background: url("../../assets/bg-curve.svg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Helvetica', Arial, sans-serif;
+}
+
 .navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -158,8 +167,30 @@ img,
     color: #3c5afd;
 }
 
+.icon-card,
+.text-card {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
 .card-container {
-    margin-top: 100px;
+    margin-top: 70px;
+}
+
+.icon-card {
+    padding-top: 20px;
+}
+
+.image-container {
+    padding: 13px;
+    border-radius: 4px;
+    background: #ececec;
+}
+
+.text-card {
+    width: 100%;
+    text-align: left;
 }
 
 .footer {
@@ -171,6 +202,8 @@ img,
     margin-left: auto;
     margin-right: auto;
     background: #33393C;
+    position: fixed;
+    bottom: 0;
 }
 
 .footer-text {
