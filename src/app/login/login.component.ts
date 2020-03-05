@@ -37,6 +37,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  logout() {
+    console.log("Clearing headers");
+    localStorage.removeItem("token");
+    console.log("logged out");
+  }
   ngOnInit(): void {
   }
 

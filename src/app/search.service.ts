@@ -1,4 +1,3 @@
-import { environment } from './../environments/environment.prod';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -7,14 +6,32 @@ import { Injectable } from '@angular/core';
 })
 
 export class SearchService {
-  headers = new HttpHeaders();
-  
+  headers = new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': "Bearer " + localStorage.getItem("token")
+  });
+      
   constructor(private http: HttpClient) {
-    this.headers.set("Authorization", "Bearer " + localStorage.getItem("token"));
+    // console.log("Bearer " + localStorage.getItem("token"))
+    let str = localStorage.getItem("token");
+    // console.log(str);
+    // console.log("a" + str);
+    // this.headers.set("authorization", "Bearer " + localStorage.getItem("token"));
+    console.log(this.headers);
   }
 
   search() {
-    return this.http.post(environment.baseurl + "/search", { headers: this.headers });
+    // return this.http.post(environment.baseurl + "/search", {"data":"asdsdf"},{ headers: this.headers });
+    console.log("Calling search")
+    // console.log(this.headers.getAll)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': "Bearer " + localStorage.getItem("token"),
+        "gandhar":"custom header"
+      })
+    };
+    return this.http.post("https://mini-project-sbjain.herokuapp.com/api/search", {"data":"asdsdf"}, httpOptions);
   }
 
 }

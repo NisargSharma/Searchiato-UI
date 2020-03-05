@@ -17,8 +17,7 @@ export class LoginSignupService {
     return this.http.post(environment.baseurl + '/login', obj);
   }
 
-  logout() {
-     
+  logout() {  
   }
 
 }

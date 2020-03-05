@@ -11,7 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatListModule } from '@angular/material/list';
-import { MatGridListModule, MatGridList } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';  
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
@@ -35,7 +36,8 @@ import { SearchComponent } from './search/search.component';
      MatInputModule,
      MatCardModule,
      MatListModule,
-     MatGridListModule,
+     MatSelectModule,
+     MatExpansionModule,
      HttpClientModule,
   ],
   providers: [],
