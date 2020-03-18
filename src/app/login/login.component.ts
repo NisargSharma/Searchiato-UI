@@ -1,5 +1,7 @@
 import { HeadersService } from "./../headers.service";
 import { Component, OnInit } from "@angular/core";
+import Swal from 'sweetalert2';
+
 import {
   FormGroup,
   FormControl,
@@ -42,10 +44,22 @@ export class LoginComponent implements OnInit {
         this.loginData = success;
         if (this.loginData.token) {
           this.hservice.setHeaders(this.loginData.token);
+          Swal.fire({
+            title: 'Success!',
+            text: 'Login Successful',
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          })
           this.router.navigateByUrl("/home");
         }
       },
       error => {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Login Unsuccessful',
+          icon: 'error',
+          confirmButtonText: 'Try Again',
+        })
         console.log(error);
       }
     );

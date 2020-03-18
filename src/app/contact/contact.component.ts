@@ -8,6 +8,7 @@ import {
   FormGroupDirective
 } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: "app-contact",
@@ -35,9 +36,21 @@ export class ContactComponent implements OnInit {
       success => {
         console.log(this.contactForm.value);
         console.log(success);
+        Swal.fire({
+          title: 'Success!',
+          text: "We'll get back to you in some time",
+          icon: 'success',
+          confirmButtonText: 'Okay'
+        })
       },
       error => {
         console.log(error);
+        Swal.fire({
+          title: 'Error!',
+          text: 'Something went wrong!',
+          icon: 'error',
+          confirmButtonText: 'Try Again'
+        })
       }
     );
   }

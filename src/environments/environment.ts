@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  baseurl: "http://localhost:3000/api"
+  baseurl: "https://mini-project-sbjain.herokuapp.com/api"
 };
 
 /*

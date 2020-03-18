@@ -10,6 +10,7 @@ import {
 import { ErrorStateMatcher } from "@angular/material/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: "app-signup",
@@ -36,10 +37,22 @@ export class SignupComponent implements OnInit {
       success => {
         console.log(this.signupForm.value);
         console.log(success);
+        Swal.fire({
+          title: 'Success!',
+          text: 'SignUp Successful',
+          icon: 'success',
+          confirmButtonText: 'Okay'
+        })
         this.router.navigateByUrl("/login");
       },
       error => {
         console.log(error);
+        Swal.fire({
+          title: 'Error!',
+          text: 'SignUp Unsuccessful',
+          icon: 'error',
+          confirmButtonText: 'Try Again'
+        })
       }
     );
   }
