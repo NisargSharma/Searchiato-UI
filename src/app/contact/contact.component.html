@@ -1,95 +1,154 @@
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
-        <div class="navbar-brand">
-            <img routerLink="/home" src="../../assets/brand.png" alt="Logo" height="50px" width="200px">
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <p class="nav-link" routerLink="/home">Home</p>
-                </li>
-                <li class="nav-item" style="float: right;">
-                    <p class="nav-link" routerLink="/about">About</p>
-                </li>
-                <li class="nav-item" style="float: right;">
-                    <p class="nav-link" routerLink="/search">Search</p>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="image_container d-flex justify-content-center h-100">
-                    <img src="../../assets/contact2.webp" class="left-image mx-auto d-block" width="70%" />
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex justify-content-center h-100">
-                    <div class="form_card">
-
-                        <div class="d-flex justify-content-center">
-                            <div class="header_container">
-                                <h1 id="header">Contact Us</h1>
-                            </div>
-                        </div>
-
-                        <form class="loginForm" [formGroup]="contactForm">
-                            <div class="input-group mb-3">
-                                <mat-form-field class="formField">
-                                    <mat-label style="font-size: 18px;">Name</mat-label>
-                                    <input matInput type="text" formControlName="name" placeholder="Enter name">
-                                    <mat-error *ngIf="contactForm.controls.name.hasError('minLength') && !contactForm.controls.name.hasError('required')">
-                                        Please enter a valid name
-                                    </mat-error>
-                                    <mat-error *ngIf="contactForm.controls.name.hasError('required')">
-                                        Name is required
-                                    </mat-error>
-                                </mat-form-field>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <mat-form-field class="formField">
-                                    <mat-label style="font-size: 18px;">Email</mat-label>
-                                    <input matInput type="email" formControlName="email" placeholder="Enter email address">
-                                    <mat-error *ngIf="contactForm.controls.email.hasError('email') && !contactForm.controls.email.hasError('required')">
-                                        Please enter a valid email address
-                                    </mat-error>
-                                    <mat-error *ngIf="contactForm.controls.email.hasError('required')">
-                                        Email is required
-                                    </mat-error>
-                                </mat-form-field>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <mat-form-field class="formField">
-                                    <mat-label style="font-size: 18px;">Message</mat-label>
-                                    <textarea matInput formControlName="message" placeholder="Enter your message"></textarea>
-                                    <mat-error *ngIf="contactForm.controls.message.hasError('minLength') && !contactForm.controls.message.hasError('required')">
-                                        Please enter a valid message
-                                    </mat-error>
-                                    <mat-error *ngIf="contactForm.controls.message.hasError('required')">
-                                        Message is required
-                                    </mat-error>
-                                </mat-form-field>
-                            </div>
-
-                            <div class="d-flex justify-content-center mt-3 login_container">
-                                <button type="submit" (click)="contact()" [disabled]="contactForm.invalid" class="btn login_btn">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+    <div class="navbar-brand">
+      <img
+        routerLink="/home"
+        src="../../assets/brand.png"
+        alt="Logo"
+        height="50px"
+        width="200px"
+      />
     </div>
-    <div class="footer d-flex justify-content-center">
-        <div class="footer-text d-flex justify-content-center">
-            © Copyright Searchiato. All Rights Reserved
-        </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/home">Home</p>
+        </li>
+        <li class="nav-item" style="float: right;">
+          <p class="nav-link" routerLink="/about">About</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/contact">Contact</p>
+        </li>
+        <li class="nav-item" style="float: right;">
+          <p class="nav-link" routerLink="/search">Search</p>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="image_container d-flex justify-content-center h-100">
+          <img
+            src="../../assets/contact2.webp"
+            class="left-image mx-auto d-block"
+            width="70%"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center h-100">
+          <div class="form_card">
+            <div class="d-flex justify-content-center">
+              <div class="header_container">
+                <h1 id="header">Contact Us</h1>
+              </div>
+            </div>
+
+            <form class="loginForm" [formGroup]="contactForm">
+              <div class="input-group mb-3">
+                <mat-form-field class="formField">
+                  <mat-label style="font-size: 18px;">Name</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    formControlName="name"
+                    placeholder="Enter name"
+                  />
+                  <mat-error
+                    *ngIf="
+                      contactForm.controls.name.hasError('minLength') &&
+                      !contactForm.controls.name.hasError('required')
+                    "
+                  >
+                    Please enter a valid name
+                  </mat-error>
+                  <mat-error
+                    *ngIf="contactForm.controls.name.hasError('required')"
+                  >
+                    Name is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="input-group mb-3">
+                <mat-form-field class="formField">
+                  <mat-label style="font-size: 18px;">Email</mat-label>
+                  <input
+                    matInput
+                    type="email"
+                    formControlName="email"
+                    placeholder="Enter email address"
+                  />
+                  <mat-error
+                    *ngIf="
+                      contactForm.controls.email.hasError('email') &&
+                      !contactForm.controls.email.hasError('required')
+                    "
+                  >
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error
+                    *ngIf="contactForm.controls.email.hasError('required')"
+                  >
+                    Email is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="input-group mb-3">
+                <mat-form-field class="formField">
+                  <mat-label style="font-size: 18px;">Message</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="message"
+                    placeholder="Enter your message"
+                  ></textarea>
+                  <mat-error
+                    *ngIf="
+                      contactForm.controls.message.hasError('minLength') &&
+                      !contactForm.controls.message.hasError('required')
+                    "
+                  >
+                    Please enter a valid message
+                  </mat-error>
+                  <mat-error
+                    *ngIf="contactForm.controls.message.hasError('required')"
+                  >
+                    Message is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="d-flex justify-content-center mt-3 login_container">
+                <button
+                  type="submit"
+                  (click)="contact()"
+                  [disabled]="contactForm.invalid"
+                  class="btn login_btn"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer d-flex justify-content-center">
+    <div class="footer-text d-flex justify-content-center">
+      © Copyright Searchiato. All Rights Reserved
+    </div>
+  </div>
 </body>

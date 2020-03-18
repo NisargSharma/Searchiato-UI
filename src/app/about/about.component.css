@@ -379,9 +379,9 @@ img,
 }
 
 .footer {
-    height: 80px;
+    height: 70px;
     width: 100%;
-    max-height: 80px;
+    max-height: 70px;
     max-width: 100%;
     margin-top: 70px;
     margin-left: auto;
@@ -391,7 +391,7 @@ img,
 
 .footer-text {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 23px;
     color: #ffffff;
     font-family: 'Helvetica', Arial, sans-serif;
     font-size: 16px;

@@ -1,27 +1,43 @@
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
-        <div class="navbar-brand">
-            <img routerLink="/home" src="../../assets/brand.png" alt="Logo" height="50px" width="200px">
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <p class="nav-link" routerLink="/home">Home</p>
-                </li>
-                <li class="nav-item" style="float: right;">
-                    <p class="nav-link" routerLink="/about">About</p>
-                </li>
-                <li class="nav-item" style="float: right;">
-                    <p class="nav-link" routerLink="/search">Search</p>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+    <div class="navbar-brand">
+      <img
+        routerLink="/home"
+        src="../../assets/brand.png"
+        alt="Logo"
+        height="50px"
+        width="200px"
+      />
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/home">Home</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/about">About</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/search">Search</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link" (click)="logout()" routerLink="/login">
+            Sign Out
+          </p>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- <form [formGroup]="searchForm" style="margin: 100px;">
+  <!-- <form [formGroup]="searchForm" style="margin: 100px;">
     <div class="input-group mb-3">
         <mat-form-field class="formField">
             <mat-label style="font-size: 18px;">Search</mat-label>
@@ -39,12 +55,12 @@
     </div>
 </form> -->
 
-    <div class="col-md-12">
-        <div class="d-flex h-100 justify-content-center container search_container">
-            <div class="input-group h-100 d-flex justify-content-center">
-                <form [formGroup]="searchForm">
-                    <div class="input-group mb-3">
-                        <!-- <div class="input-group-btn search-panel">
+  <div class="col-md-12">
+    <div class="d-flex h-100 justify-content-center container search_container">
+      <div class="input-group h-100 d-flex justify-content-center">
+        <form [formGroup]="searchForm">
+          <div class="input-group mb-3">
+            <!-- <div class="input-group-btn search-panel">
                             <button formControlName="category" class="btn btn-default input-group-text dropdown-toggle" data-toggle="dropdown">
                                 <span id="search_concept">
                                     <span class="glyphicon glyphicon-align-justify"></span>
@@ -56,141 +72,172 @@
                                 <p *ngFor="let item of options" class="list-group-item list-group-item-action border-0">{{ item.value }}</p>
                             </div>
                         </div> -->
-                        <mat-form-field>
-                            <mat-label>Category</mat-label>
-                            <mat-select formControlName="category">
-                                <mat-option *ngFor="let item of options" [value]="item.value">
-                                    {{item.viewValue}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+            <mat-form-field>
+              <mat-label>Category</mat-label>
+              <mat-select formControlName="category">
+                <mat-option *ngFor="let item of options" [value]="item.value">
+                  {{ item.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
-                        <!-- <input type="text" formControlName="query" class="form-control" placeholder="Search by name or email" id="demo" /> -->
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Search</mat-label>
-                            <input formControlName="query" matInput placeholder="Search with a name or email">
-                        </mat-form-field>
-                        <div class="input-group-append">
-                            <button (click)="search()" class="input-group-text search_icon justify-content-center">
-                                <img src="../../assets/search.png" height="20px" width="20px" />
-                            </button>
-                        </div>
-                    </div>
-                </form>
+            <!-- <input type="text" formControlName="query" class="form-control" placeholder="Search by name or email" id="demo" /> -->
+            <mat-form-field class="example-full-width">
+              <mat-label>Search</mat-label>
+              <input
+                formControlName="query"
+                matInput
+                placeholder="Search with a name or email"
+              />
+            </mat-form-field>
+            <div class="input-group-append">
+              <button
+                (click)="search()"
+                class="input-group-text search_icon justify-content-center"
+              >
+                <img src="../../assets/search.png" height="20px" width="20px" />
+              </button>
             </div>
-        </div>
-
-        <div class="container card-container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-6 d-flex justify-content-center">
-                    <mat-card class="icon-card">
-                        <div class="image-container">
-                            <img id="icon" src="../../assets/card.svg" height="40px" width="40px" />
-                        </div>
-                    </mat-card>
-                    <mat-card class="text-card">
-                        <mat-card-title>Name Search Matches</mat-card-title>
-                        <mat-card-subtitle>Address, phone number</mat-card-subtitle>
-                        <mat-accordion>
-                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>
-                                        Click to view details
-                                    </mat-panel-title>
-                                    <!-- <mat-panel-description>
-                                        Click to view details {{ panelOpenState ? 'open' : 'closed'}}
-                                    </mat-panel-description> -->
-                                </mat-expansion-panel-header>
-                                <p *ngFor="let f of firstCard">{{ f.val }}</p>
-                            </mat-expansion-panel>
-                        </mat-accordion>
-                    </mat-card>
-                </div>
-
-
-                <div class="col-md-6 d-flex justify-content-center">
-                    <mat-card class="icon-card">
-                        <div class="image-container">
-                            <img id="icon" src="../../assets/share.svg" height="40px" width="40px" />
-                        </div>
-                    </mat-card>
-                    <mat-card class="text-card">
-                        <mat-card-title>Social Networks</mat-card-title>
-                        <mat-card-subtitle>Social network search in seconds</mat-card-subtitle>
-                        <mat-accordion>
-                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>
-                                        Click to view details
-                                    </mat-panel-title>
-                                    <!-- <mat-panel-description>
-                                        Click to view details {{ panelOpenState ? 'open' : 'closed'}}
-                                    </mat-panel-description> -->
-                                </mat-expansion-panel-header>
-                                <p *ngFor="let s of secondCard">{{ s.val }}</p>
-                            </mat-expansion-panel>
-                        </mat-accordion>
-                    </mat-card>
-                </div>
-            </div>
-
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-6 d-flex justify-content-center">
-                    <mat-card class="icon-card">
-                        <div class="image-container">
-                            <img id="icon" src="../../assets/camera.svg" height="40px" width="40px" />
-                        </div>
-                    </mat-card>
-                    <mat-card class="text-card">
-                        <mat-card-title>Photos and Online Profiles</mat-card-title>
-                        <mat-card-subtitle>Profiles, photos from top online sites</mat-card-subtitle>
-                        <mat-accordion>
-                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>
-                                        Click to view details
-                                    </mat-panel-title>
-                                    <!-- <mat-panel-description>
-                                        Click to view details {{ panelOpenState ? 'open' : 'closed'}}
-                                    </mat-panel-description> -->
-                                </mat-expansion-panel-header>
-                                <p *ngFor="let t of thirdCard">{{ t.val }}</p>
-                            </mat-expansion-panel>
-                        </mat-accordion>
-                    </mat-card>
-                </div>
-                <div class="col-md-6 d-flex justify-content-center">
-                    <mat-card class="icon-card">
-                        <div class="image-container">
-                            <img id="icon" src="../../assets/contact.svg" height="40px" width="40px" />
-                        </div>
-                    </mat-card>
-                    <mat-card class="text-card">
-                        <mat-card-title>Email Authenticity</mat-card-title>
-                        <mat-card-subtitle>Confirm if the email address is valid</mat-card-subtitle>
-                        <mat-accordion>
-                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>
-                                        Click to view details
-                                    </mat-panel-title>
-                                    <!-- <mat-panel-description>
-                                        Click to view details {{ panelOpenState ? 'open' : 'closed'}}
-                                    </mat-panel-description> -->
-                                </mat-expansion-panel-header>
-                                <p *ngFor="let f of fourthCard">{{ f.val }}</p>
-                            </mat-expansion-panel>
-                        </mat-accordion>
-                    </mat-card>
-                </div>
-            </div>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div class="footer d-flex justify-content-center">
-        <div class="footer-text d-flex justify-content-center">
-            © Copyright Searchiato. All Rights Reserved
+    <div class="container card-container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center">
+          <mat-card class="icon-card">
+            <div class="image-container">
+              <img
+                id="icon"
+                src="../../assets/card.svg"
+                height="40px"
+                width="40px"
+              />
+            </div>
+          </mat-card>
+          <mat-card class="text-card">
+            <mat-card-title>Name Search Matches</mat-card-title>
+            <mat-card-subtitle>Name and phone number</mat-card-subtitle>
+            <mat-accordion>
+              <mat-expansion-panel
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Click to view details
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p *ngFor="let f of firstCard">{{ f.val }}</p>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-card>
         </div>
-    </div>
 
+        <div class="col-md-6 d-flex justify-content-center">
+          <mat-card class="icon-card">
+            <div class="image-container">
+              <img
+                id="icon"
+                src="../../assets/share.svg"
+                height="40px"
+                width="40px"
+              />
+            </div>
+          </mat-card>
+          <mat-card class="text-card">
+            <mat-card-title>Family and Friends</mat-card-title>
+            <mat-card-subtitle
+              >Social network search in seconds</mat-card-subtitle
+            >
+            <mat-accordion>
+              <mat-expansion-panel
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Click to view details
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p *ngFor="let s of secondCard">{{ s.val }}</p>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-card>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center">
+          <mat-card class="icon-card">
+            <div class="image-container">
+              <img
+                id="icon"
+                src="../../assets/camera.svg"
+                height="40px"
+                width="40px"
+              />
+            </div>
+          </mat-card>
+          <mat-card class="text-card">
+            <mat-card-title>Work and Job Details</mat-card-title>
+            <mat-card-subtitle
+              >Job related history and current work details</mat-card-subtitle
+            >
+            <mat-accordion>
+              <mat-expansion-panel
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Click to view details
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p *ngFor="let t of thirdCard">{{ t.val }}</p>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-card>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+          <mat-card class="icon-card">
+            <div class="image-container">
+              <img
+                id="icon"
+                src="../../assets/contact.svg"
+                height="40px"
+                width="40px"
+              />
+            </div>
+          </mat-card>
+          <mat-card class="text-card">
+            <mat-card-title>Email Match</mat-card-title>
+            <mat-card-subtitle>Get related emails</mat-card-subtitle>
+            <mat-card-content>
+              <mat-accordion>
+                <mat-expansion-panel
+                  (opened)="panelOpenState = true"
+                  (closed)="panelOpenState = false"
+                >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Click to view details
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <p *ngFor="let f of fourthCard">{{ f.val }}</p>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer d-flex justify-content-center">
+    <div class="footer-text d-flex justify-content-center">
+      © Copyright Searchiato. All Rights Reserved
+    </div>
+  </div>
 </body>

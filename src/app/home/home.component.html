@@ -1,36 +1,64 @@
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
-        <div class="navbar-brand">
-            <img routerLink="/home" src="../../assets/brand.png" alt="Logo" height="50px" width="200px">
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+    <div class="navbar-brand">
+      <img
+        routerLink="/home"
+        src="../../assets/brand.png"
+        alt="Logo"
+        height="50px"
+        width="200px"
+      />
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapsibleNavbar"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <p class="nav-link" routerLink="/home">Home</p>
-                </li>
-                <li class="nav-item" style="float: right">
-                    <p class="nav-link" routerLink="/contact">Contact</p>
-                </li>
-                <li class="nav-item" style="float: right;">
-                    <p class="nav-link" routerLink="/search">Search</p>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- <div class="Main">
-        <img src="../../assets/bg-people.png" class="overimg" />
-        <div class="vectorimg">
-            <img style='height: 100%; width: 100%; object-fit: contain' src="../../assets/people.svg" alt="img not found">
-        </div>
-    </!-->
-
-    <div class="footer d-flex justify-content-center">
-        <div class="footer-text d-flex justify-content-center">
-            © Copyright Searchiato. All Rights Reserved
-        </div>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/home">Home</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/about">About</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/contact">Contact</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/search">Search</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link" routerLink="/signup">SignUp</p>
+        </li>
+      </ul>
     </div>
+  </nav>
+  <div class="Main">
+    <img src="../../assets/bg-people.png" class="overimg" />
+  </div>
+  <div class="vectorimg">
+    <img
+      style="height: 100%; width: 100%; object-fit: contain"
+      src="../../assets/people.svg"
+      alt="img not found"
+    />
+  </div>
+  <div class="maintext">
+    <h1>Know better with<br />profiling</h1>
+    <p>
+      It's very simple, Start by searching a <br />name or email, and set what
+      interesting<br />and useful information you can find.
+    </p>
+    <button id="getstarted" routerLink="/login">Get Started &nbsp;></button>
+  </div>
+
+  <div class="footer d-flex justify-content-center">
+    <div class="footer-text d-flex justify-content-center">
+      © Copyright Searchiato. All Rights Reserved
+    </div>
+  </div>
 </body>
