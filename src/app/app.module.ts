@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button'; 
 import { MatExpansionModule } from '@angular/material/expansion';  
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
@@ -37,6 +39,8 @@ import { SearchComponent } from './search/search.component';
      MatCardModule,
      MatListModule,
      MatSelectModule,
+     MatButtonModule,
+     MatIconModule,
      MatExpansionModule,
      HttpClientModule,
   ],

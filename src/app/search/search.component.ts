@@ -1,7 +1,12 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {FormGroup,
+  FormControl,
+  Validators,
+  NgForm,
+  FormGroupDirective} from '@angular/forms';
 import { SearchService } from './../search.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ErrorStateMatcher } from "@angular/material/core";
 
 @Component({
   selector: 'app-search',
@@ -15,31 +20,24 @@ export class SearchComponent implements OnInit {
   panelOpenState: boolean;
 
   firstCard: any = [
-    { "val": "name 1" },
-    { "val": "name 2" },
-    { "val": "name 3" },
-    { "val": "name 4" }
-  ];
-
-  secondCard: any = [
-    { "val": "social 1" },
-    { "val": "social 2" },
-    { "val": "social 3" },
-    { "val": "social 4" }
-  ];
-
-  thirdCard: any = [
-    { "val": "profile 1" },
-    { "val": "profile 2" },
-    { "val": "profile 3" },
-    { "val": "profile 4" }
-  ];
-
-  fourthCard: any = [
-    { "val": "email 1" },
-    { "val": "email 2" },
-    { "val": "email 3" },
-    { "val": "email 4" }
+    {
+      data: {
+        name: "Nihar",
+        email: "nihar@gmail.com",
+      }
+    },
+    {
+      data: {
+        name: "Nihar",
+        email: "nihar@gmail.com",
+      },
+    },
+    {
+      data: {
+        name: "Nihar",
+        email: "nihar@gmail.com",
+      }
+    },
   ];
 
   options: any = [
@@ -59,7 +57,6 @@ export class SearchComponent implements OnInit {
     },
     error => {
       console.log(error);
-      this.router.navigateByUrl("/login");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               this.router.navigateByUrl("/login");
     });
   }
 
@@ -72,4 +69,20 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
                                                                                                                                                                                                                                                                                                                                                                   
-}                                                                                                                                                                                                          
+}         
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
+  }
+
+  matcher = new MyErrorStateMatcher();
+}
