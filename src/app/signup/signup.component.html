@@ -46,7 +46,7 @@
                                     <mat-label style="font-size: 18px;">Name</mat-label>
                                     <input matInput type="text" formControlName="name" placeholder="Enter name">
                                     <mat-error *ngIf="signupForm.controls.name.hasError('minLength') && !signupForm.controls.name.hasError('required')">
-                                        Please enter a valid name
+                                        Name cannot be less than 4 characters
                                     </mat-error>
                                     <mat-error *ngIf="signupForm.controls.name.hasError('required')">
                                         Name is required

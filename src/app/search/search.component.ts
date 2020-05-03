@@ -1,9 +1,5 @@
-import {FormGroup,
-  FormControl,
-  Validators,
-  NgForm,
-  FormGroupDirective} from '@angular/forms';
-import { SearchService } from './../search.service';
+import { FormGroup, FormControl, Validators, NgForm,FormGroupDirective } from '@angular/forms';
+import { SearchService } from '../services/search.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from "@angular/material/core";
@@ -18,6 +14,7 @@ export class SearchComponent implements OnInit {
   constructor(private sservice: SearchService, private router: Router) { }
   
   panelOpenState: boolean;
+  searchData: any;
 
   firstCard: any = [
     {
@@ -40,23 +37,32 @@ export class SearchComponent implements OnInit {
     },
   ];
 
-  options: any = [
-    { value: 'name', viewValue: "Name" },
-    { value: 'email', viewValue: "Email" },
-  ];
 
   searchForm = new FormGroup({
-    category: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     query: new FormControl('', [Validators.required]),
   });
 
-  search() {
-    this.sservice.search().subscribe(success => {
-      console.log(this.searchForm.value);
-      console.log(success);
+  searchByName() {
+    console.log("form data: ", this.searchForm.value.name);
+    this.sservice.getDataByName(this.searchForm.value.name).subscribe((success: any) => {
+      this.searchData = success;
+      console.log("success: ", success)
     },
-    error => {
-      console.log(error);
+    (error: any) => {
+      console.log("error msg:", error);
+    });
+  }
+
+  searchByEmail() {
+    console.log("form data: ", this.searchForm.value.email);
+    this.sservice.getDataByName(this.searchForm.value.email).subscribe((success: any) => {
+      this.searchData = success;
+      console.log("success: ", success)
+    },
+    (error: any) => {
+      console.log("error msg:", error);
     });
   }
 

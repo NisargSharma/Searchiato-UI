@@ -1,4 +1,4 @@
-import { LoginSignupService } from "./../login-signup.service";
+import { LoginSignupService } from "../services/login-signup.service";
 import { Component, OnInit } from "@angular/core";
 import {
   FormGroup,
@@ -18,17 +18,16 @@ import Swal from 'sweetalert2';
   styleUrls: ["./signup.component.css"]
 })
 export class SignupComponent implements OnInit {
+  constructor(
+    private http: HttpClient,
+    private lservice: LoginSignupService,
+    private router: Router
+  ) {}
+  
   signupForm = new FormGroup({
-    name: new FormControl("", [
-      Validators.pattern(/^[A-Za-z]+$/),
-      Validators.minLength(4),
-      Validators.required
-    ]),
+    name: new FormControl("", [Validators.pattern(/^[A-Za-z]+$/), Validators.minLength(4),Validators.required]),
     email: new FormControl("", [Validators.email, Validators.required]),
-    password: new FormControl("", [
-      Validators.minLength(6),
-      Validators.required
-    ])
+    password: new FormControl("", [Validators.minLength(6),Validators.required]),
     // cpassword: new FormControl('', [Validators.minLength(6), Validators.required]),
   });
 
@@ -56,12 +55,6 @@ export class SignupComponent implements OnInit {
       }
     );
   }
-
-  constructor(
-    private http: HttpClient,
-    private lservice: LoginSignupService,
-    private router: Router
-  ) {}
 
   ngOnInit(): void {}
 }

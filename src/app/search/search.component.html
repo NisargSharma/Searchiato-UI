@@ -15,6 +15,9 @@
                     <p class="nav-link" routerLink="/about">About</p>
                 </li>
                 <li class="nav-item">
+                    <p class="nav-link" routerLink="/contact">Contact</p>
+                </li>
+                <li class="nav-item">
                     <p class="nav-link" routerLink="/search">Search</p>
                 </li>
                 <li class="nav-item">
@@ -34,19 +37,21 @@
                         <mat-card>
                             <mat-form-field class="px-3">
                                 <mat-label>Category</mat-label>
-                                <mat-select formControlName="category">
-                                    <mat-option *ngFor="let item of options" [value]="item.value">
-                                        {{ item.viewValue }}
-                                    </mat-option>
+                                <mat-select>
+                                    <mat-option matInput>Name</mat-option>
+                                    <mat-option matInput>Email</mat-option>
                                 </mat-select>
                             </mat-form-field>
 
                             <mat-form-field class="px-3">
                                 <mat-label>Search</mat-label>
-                                <input formControlName="query" matInput placeholder="Search with a name or email" />
+                                <input formControlName="name" matInput placeholder="Search with a name or email" />
+                                <mat-error *ngIf="searchForm.controls.email.hasError('required')">
+                                    Search query is required
+                                </mat-error>
                             </mat-form-field>
 
-                            <button (click)="search()" [disabled]="searchForm.invalid" type="submit" class="justify-content-center" mat-mini-fab color="primary">
+                            <button (click)="searchByName()" type="submit" class="justify-content-center" mat-mini-fab color="primary">
                                 <mat-icon>search</mat-icon>
                             </button>
                         </mat-card>
@@ -57,6 +62,11 @@
     </div>
     <div class="container-fluid px-4 card-container">
         <div class="row justify-content-center">
+            <div class="col-md-6 justify-content-center">
+                <div class="search-image text-center pt-0 mt-0">
+                    <img class="img-fluid" alt="searchiato-search-page-image" src="../../assets/search-page.svg" />
+                </div>
+            </div>
             <div *ngIf="firstCard" class="col-md-6 justify-content-center">
                 <mat-card *ngFor="let f of firstCard; let i = index" class="text-card">
                     <mat-card-title>
@@ -75,11 +85,6 @@
                         </mat-expansion-panel>
                     </mat-accordion>
                 </mat-card>
-            </div>
-            <div class="col-md-6 justify-content-center">
-                <div class="search-image text-center pt-0 mt-0">
-                    <img class="img-fluid" alt="searchiato-search-page-image" src="../../assets/search-page.svg" />
-                </div>
             </div>
         </div>
     </div>

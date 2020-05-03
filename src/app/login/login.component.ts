@@ -1,16 +1,9 @@
-import { HeadersService } from "./../headers.service";
+import { HeadersService } from "../services/headers.service";
 import { Component, OnInit } from "@angular/core";
 import Swal from 'sweetalert2';
-
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  NgForm,
-  FormGroupDirective
-} from "@angular/forms";
+import { FormGroup, FormControl, Validators, NgForm, FormGroupDirective } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
-import { LoginSignupService } from "./../login-signup.service";
+import { LoginSignupService } from "../services/login-signup.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -23,10 +16,7 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     email: new FormControl("", [Validators.email, Validators.required]),
-    password: new FormControl("", [
-      Validators.minLength(6),
-      Validators.required
-    ])
+    password: new FormControl("", [Validators.minLength(6), Validators.required])
   });
 
   constructor(
@@ -38,8 +28,8 @@ export class LoginComponent implements OnInit {
   login() {
     this.lservice.login(this.loginForm.value).subscribe(
       success => {
-        console.log(this.loginForm.value);
-        console.log(success);
+        console.log("form value: ", this.loginForm.value);
+        console.log("success: ", success);
 
         this.loginData = success;
         if (this.loginData.token) {

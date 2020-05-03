@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
 export class LoginSignupService {
 
   constructor(private http: HttpClient) { }
@@ -15,10 +16,6 @@ export class LoginSignupService {
 
   login(obj) {
     return this.http.post(environment.baseurl + '/login', obj);
-  }
-
-  logout() {  
-    
   }
 
 }

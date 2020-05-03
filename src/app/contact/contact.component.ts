@@ -1,12 +1,6 @@
-import { ContactService } from "./../contact.service";
+import { ContactService } from "../services/contact.service";
 import { Component, OnInit } from "@angular/core";
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  NgForm,
-  FormGroupDirective
-} from "@angular/forms";
+import { FormGroup, FormControl, Validators, NgForm, FormGroupDirective } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
 import Swal from 'sweetalert2';
 
