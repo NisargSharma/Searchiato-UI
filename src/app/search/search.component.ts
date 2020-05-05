@@ -15,55 +15,33 @@ export class SearchComponent implements OnInit {
   
   panelOpenState: boolean;
   searchData: any;
-
-  firstCard: any = [
-    {
-      data: {
-        name: "Nihar",
-        email: "nihar@gmail.com",
-      }
-    },
-    {
-      data: {
-        name: "Nihar",
-        email: "nihar@gmail.com",
-      },
-    },
-    {
-      data: {
-        name: "Nihar",
-        email: "nihar@gmail.com",
-      }
-    },
-  ];
-
-
+  p: number = 1;
+  
   searchForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    category: new FormControl('', [Validators.required]),
     query: new FormControl('', [Validators.required]),
   });
 
-  searchByName() {
-    console.log("form data: ", this.searchForm.value.name);
-    this.sservice.getDataByName(this.searchForm.value.name).subscribe((success: any) => {
-      this.searchData = success;
-      console.log("success: ", success)
-    },
-    (error: any) => {
-      console.log("error msg:", error);
-    });
-  }
-
-  searchByEmail() {
-    console.log("form data: ", this.searchForm.value.email);
-    this.sservice.getDataByName(this.searchForm.value.email).subscribe((success: any) => {
-      this.searchData = success;
-      console.log("success: ", success)
-    },
-    (error: any) => {
-      console.log("error msg:", error);
-    });
+  search() {
+    console.log("form data: ", this.searchForm.value);
+    if(this.searchForm.value.category == 'name') {
+      this.sservice.getDataByName(this.searchForm.value).subscribe((success: any) => {
+        this.searchData = success.data;
+        console.log("success: ", success)
+        console.log("searchData", this.searchData);
+      },
+      (error: any) => {
+        console.log("error msg:", error);
+      });
+    } else {
+      this.sservice.getDataByEmail(this.searchForm.value).subscribe((success: any) => {
+        this.searchData = success.data;
+        console.log("success: ", success)
+      },
+      (error: any) => {
+        console.log("error msg:", error);
+      });
+    }
   }
 
   logout() {

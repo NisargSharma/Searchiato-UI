@@ -1,4 +1,4 @@
-<body>
+<body style="overflow: scroll;">
     <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
         <div class="navbar-brand">
             <img routerLink="/home" src="../../assets/brand.png" alt="Logo" height="50px" width="200px" />
@@ -34,46 +34,52 @@
             <div class="col-md-6">
                 <div class="search_container">
                     <form [formGroup]="searchForm">
-                        <mat-card>
-                            <mat-form-field class="px-3">
-                                <mat-label>Category</mat-label>
-                                <mat-select>
-                                    <mat-option matInput>Name</mat-option>
-                                    <mat-option matInput>Email</mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                        <mat-card class="p-2">
+                            <mat-card-content>
+                                <mat-form-field class="px-3">
+                                    <mat-label>Category</mat-label>
+                                    <mat-select matInput formControlName="category">
+                                        <mat-option value='name'>Name</mat-option>
+                                        <mat-option value='email'>Email</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="searchForm.controls.category.hasError('required')">
+                                        Category is required
+                                    </mat-error>
+                                </mat-form-field>
 
-                            <mat-form-field class="px-3">
-                                <mat-label>Search</mat-label>
-                                <input formControlName="name" matInput placeholder="Search with a name or email" />
-                                <mat-error *ngIf="searchForm.controls.email.hasError('required')">
-                                    Search query is required
-                                </mat-error>
-                            </mat-form-field>
+                                <mat-form-field class="px-3">
+                                    <mat-label>Search</mat-label>
+                                    <input formControlName="query" matInput placeholder="Search with a name or email" />
+                                    <mat-error *ngIf="searchForm.controls.query.hasError('required')">
+                                        Search query is required
+                                    </mat-error>
+                                </mat-form-field>
 
-                            <button (click)="searchByName()" type="submit" class="justify-content-center" mat-mini-fab color="primary">
+                                <button (click)="search()" type="submit" class="justify-content-center" [disabled]="searchForm.invalid" mat-mini-fab color="primary">
                                 <mat-icon>search</mat-icon>
                             </button>
+                            </mat-card-content>
                         </mat-card>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid px-4 card-container">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 justify-content-center">
-                <div class="search-image text-center pt-0 mt-0">
+                <div class="search-image text-center pt-5 my-0">
                     <img class="img-fluid" alt="searchiato-search-page-image" src="../../assets/search-page.svg" />
                 </div>
             </div>
-            <div *ngIf="firstCard" class="col-md-6 justify-content-center">
-                <mat-card *ngFor="let f of firstCard; let i = index" class="text-card">
+
+            <div *ngIf="searchData" class="col-md-6 justify-content-center pt-4" style="margin-bottom: 4em;">
+                <mat-card *ngFor="let item of searchData | paginate: { itemsPerPage: 5, currentPage: p};" class="text-card">
                     <mat-card-title>
-                        <img class="text-left" id="icon" src="../../assets/card.svg" height="40px" width="40px" />
-                        <span class="text-center px-3">{{ f.data.name }}</span>
+                        <img class="text-left" id="icon" src="../../assets/share.svg" height="40px" width="40px" />
+                        <span class="text-center text-capitalize px-3">{{ item.name }}</span>
                     </mat-card-title>
-                    <mat-card-subtitle>Name and phone number</mat-card-subtitle>
+                    <mat-card-subtitle class="text-capitalize">Details of {{ item.name }}</mat-card-subtitle>
                     <mat-accordion>
                         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                             <mat-expansion-panel-header>
@@ -81,10 +87,16 @@
                                     Click to view details
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
-                            <p>{{ f.data.email }}</p>
+                            <p class="text-capitalize"><span style="font-weight: 600;">Name</span>: {{ item.name }}</p>
+                            <p class="text-capitalize"><span style="font-weight: 600;">Email</span>: {{ item.email }}</p>
+                            <p class="text-capitalize"><span style="font-weight: 600;">Gender</span>: {{ item.gender }}</p>
+                            <p class="text-capitalize"><span style="font-weight: 600;">Marital Status</span>: {{ item.marriage }}</p>
+                            <p class="text-capitalize"><span style="font-weight: 600;">City</span>: {{ item.city }}</p>
+                            <p class="text-capitalize"><span style="font-weight: 600;">State</span>: {{ item.state }}</p>
                         </mat-expansion-panel>
                     </mat-accordion>
                 </mat-card>
+                <pagination-controls class="pagination mt-5" responsive="true" previousLabel="Previous" nextLabel="Next" class="text-center" (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>
     </div>

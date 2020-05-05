@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
             icon: 'success',
             confirmButtonText: 'Okay'
           })
-          this.router.navigateByUrl("/home");
+          this.router.navigateByUrl("/search");
         }
       },
       error => {

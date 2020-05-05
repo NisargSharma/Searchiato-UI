@@ -16,41 +16,23 @@ export class SearchService {
     console.log(this.headers);
   }
 
-  search() {
-    console.log("Calling search")
-    console.log("Token:", localStorage.getItem("token"));
+  getDataByName(obj: any) {    
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': "Bearer " + localStorage.getItem("token"),
       })
     };
-    return this.http.post("https://mini-project-sbjain.herokuapp.com/api/search", httpOptions);
+    return this.http.post(environment.baseurl + "/search/?name="+ obj.query, {}, httpOptions);
   }
 
-  getDataByName(name: any) {
-    let params1 = new HttpParams().set("name", name);
-    
+  getDataByEmail(obj: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': "Bearer " + localStorage.getItem("token"),
       })
     };
-    console.log("token: ", localStorage.getItem('token'))
-    return this.http.post(environment.baseurl + "/search/?name="+ name, httpOptions);
-  }
-
-  getDataByEmail(email: any) {
-    let params1 = new HttpParams().set("email", email);
-    
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': "Bearer " + localStorage.getItem("token"),
-      })
-    };
-    console.log("token: ", localStorage.getItem('token'))
-    return this.http.post(environment.baseurl + "/search/?email="+ email, httpOptions);
+    return this.http.post(environment.baseurl + "/search/?email="+ obj.query, {}, httpOptions);
   }
 }

@@ -18,6 +18,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SearchComponent } from './search/search.component';
      MatIconModule,
      MatExpansionModule,
      HttpClientModule,
+     NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
