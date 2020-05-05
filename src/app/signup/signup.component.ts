@@ -34,13 +34,15 @@ export class SignupComponent implements OnInit {
   });
 
   signup() {
+    this.spinner.show();
     this.lservice.signup(this.signupForm.value).subscribe(
       success => {
         console.log(this.signupForm.value);
         console.log(success);
+        this.spinner.hide();
         Swal.fire({
           title: 'Success!',
-          text: 'SignUp Successful',
+          text: 'Sign up Successful',
           icon: 'success',
           confirmButtonText: 'Okay'
         })
@@ -48,6 +50,7 @@ export class SignupComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.spinner.hide();
         Swal.fire({
           title: 'Error!',
           text: 'SignUp Unsuccessful',

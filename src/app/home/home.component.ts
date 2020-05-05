@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService) { }
+  constructor(private spinner: NgxSpinnerService, private router: Router) { }
+
+  isLoggedIn(): void {
+    console.log("checking token");
+    if(localStorage.getItem("token")) {
+      this.router.navigateByUrl('/search');
+    } else {
+      this.router.navigateByUrl('login');
+    }
+  }
 
   ngOnInit(): void {
     this.spinner.show();

@@ -28,14 +28,13 @@ export class LoginComponent implements OnInit {
   ) {}
 
   login() {
-    this.lservice.login(this.loginForm.value).subscribe(
-      success => {
-        console.log("form value: ", this.loginForm.value);
+    this.spinner.show();
+    this.lservice.login(this.loginForm.value).subscribe(success => {
         console.log("success: ", success);
-
         this.loginData = success;
         if (this.loginData.token) {
           this.hservice.setHeaders(this.loginData.token);
+          this.spinner.hide();
           Swal.fire({
             title: 'Success!',
             text: 'Login Successful',
@@ -46,6 +45,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error => {
+        this.spinner.hide();
         Swal.fire({
           title: 'Error!',
           text: 'Login Unsuccessful',

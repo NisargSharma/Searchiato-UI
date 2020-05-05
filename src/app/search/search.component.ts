@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   panelOpenState: boolean;
   searchData: any;
   p: number = 1;
-  
+  toggle: any;
   searchForm = new FormGroup({
     category: new FormControl('', [Validators.required]),
     query: new FormControl('', [Validators.required]),
@@ -31,6 +31,14 @@ export class SearchComponent implements OnInit {
       this.sservice.getDataByName(this.searchForm.value).subscribe((success: any) => {
         this.searchData = success.data;
         console.log("searchData", this.searchData);
+        if(this.searchData.length === 0) {
+          Swal.fire({
+            title: 'No Results Found',
+            text: 'Try searching for someone else',
+            icon: 'error',
+            confirmButtonText: 'Try again',
+          });
+        }
         this.spinner.hide();
       },
       (error: any) => {
@@ -42,7 +50,6 @@ export class SearchComponent implements OnInit {
         this.searchData = success.data;
         console.log("searchData", this.searchData);
         this.spinner.hide();
-
       },
       (error: any) => {
         this.spinner.hide();
@@ -52,8 +59,10 @@ export class SearchComponent implements OnInit {
   }
 
   logout() {
+    this.spinner.show();
     localStorage.removeItem("token");
     console.log("Logged out");
+    this.spinner.hide();
     Swal.fire({
       title: 'Success!',
       text: 'Logged Out Successfully',
