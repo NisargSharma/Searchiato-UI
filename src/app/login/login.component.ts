@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { HeadersService } from "../services/headers.service";
 import { Component, OnInit } from "@angular/core";
 import Swal from 'sweetalert2';
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private lservice: LoginSignupService,
     private hservice: HeadersService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {}
 
   login() {
@@ -55,7 +57,13 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 3000);
+  }
 }
 
 /* Error when invalid control is dirty, touched, or submitted. */

@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ContactService } from "../services/contact.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators, NgForm, FormGroupDirective } from "@angular/forms";
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ["./contact.component.css"]
 })
 export class ContactComponent implements OnInit {
-  constructor(private cservice: ContactService) {}
+  constructor(private cservice: ContactService, private spinner: NgxSpinnerService) {}
 
   contactForm = new FormGroup({
     name: new FormControl("", [
@@ -30,6 +31,7 @@ export class ContactComponent implements OnInit {
       success => {
         console.log(this.contactForm.value);
         console.log(success);
+        this.contactForm.reset();
         Swal.fire({
           title: 'Success!',
           text: "We'll get back to you in some time",
@@ -49,7 +51,13 @@ export class ContactComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 3000);
+  }
 }
 
 /* Error when invalid control is dirty, touched, or submitted. */

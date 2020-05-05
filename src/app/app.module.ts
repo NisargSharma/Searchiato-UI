@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +45,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
      MatExpansionModule,
      HttpClientModule,
      NgxPaginationModule,
+     NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

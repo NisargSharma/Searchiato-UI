@@ -3,6 +3,8 @@ import { SearchService } from '../services/search.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from "@angular/material/core";
+import { NgxSpinnerService } from "ngx-spinner";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +13,7 @@ import { ErrorStateMatcher } from "@angular/material/core";
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private sservice: SearchService, private router: Router) { }
+  constructor(private sservice: SearchService, private router: Router, private spinner: NgxSpinnerService) { }
   
   panelOpenState: boolean;
   searchData: any;
@@ -23,34 +25,49 @@ export class SearchComponent implements OnInit {
   });
 
   search() {
+    this.spinner.show();
     console.log("form data: ", this.searchForm.value);
     if(this.searchForm.value.category == 'name') {
       this.sservice.getDataByName(this.searchForm.value).subscribe((success: any) => {
         this.searchData = success.data;
-        console.log("success: ", success)
         console.log("searchData", this.searchData);
+        this.spinner.hide();
       },
       (error: any) => {
+        this.spinner.hide();
         console.log("error msg:", error);
       });
     } else {
       this.sservice.getDataByEmail(this.searchForm.value).subscribe((success: any) => {
         this.searchData = success.data;
-        console.log("success: ", success)
+        console.log("searchData", this.searchData);
+        this.spinner.hide();
+
       },
       (error: any) => {
+        this.spinner.hide();
         console.log("error msg:", error);
       });
     }
   }
 
   logout() {
-    console.log("Clearing token");
     localStorage.removeItem("token");
     console.log("Logged out");
+    Swal.fire({
+      title: 'Success!',
+      text: 'Logged Out Successfully',
+      icon: 'success',
+      confirmButtonText: 'Okay'
+    })
   }
   
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 3000);
   }
                                                                                                                                                                                                                                                                                                                                                                   
 }         
