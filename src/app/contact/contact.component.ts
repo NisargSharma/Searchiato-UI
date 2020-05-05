@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ContactService } from "../services/contact.service";
 import { Component, OnInit } from "@angular/core";
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ["./contact.component.css"]
 })
 export class ContactComponent implements OnInit {
-  constructor(private cservice: ContactService, private spinner: NgxSpinnerService) {}
+  constructor(private cservice: ContactService, private spinner: NgxSpinnerService, private router: Router) {}
 
   contactForm = new FormGroup({
     name: new FormControl("", [
@@ -49,6 +50,15 @@ export class ContactComponent implements OnInit {
         })
       }
     );
+  }
+
+  isLoggedIn() {
+    console.log("checking token");
+    if(localStorage.getItem('token')) {
+      this.router.navigateByUrl('/search');
+    } else {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   ngOnInit(): void {

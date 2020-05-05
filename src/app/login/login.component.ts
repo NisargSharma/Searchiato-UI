@@ -57,6 +57,15 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  isLoggedIn() {
+    console.log("checking token");
+    if(localStorage.getItem('token')) {
+      this.router.navigateByUrl('/search');
+    } else {
+      this.router.navigateByUrl('/login');
+    }
+  }
+  
   ngOnInit(): void {
     this.spinner.show();
     setTimeout(() => {

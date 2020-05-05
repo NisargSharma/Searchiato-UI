@@ -18,7 +18,7 @@
                     <p class="nav-link" routerLink="/contact">Contact</p>
                 </li>
                 <li class="nav-item" style="float: right;">
-                    <p class="nav-link" routerLink="/search">Search</p>
+                    <p class="nav-link" (click)="isLoggedIn()">Search</p>
                 </li>
             </ul>
         </div>
@@ -33,9 +33,7 @@
                         <h4 id="first-subheader">
                             People increasingly mistrust companies, technologies, and each other. We want to leverage data to make the world around us more transparent—making trust a little easier.
                         </h4>
-                        <button type="button" routerLink="/search" class="btn try-button">
-              Try a quick search
-            </button>
+                        <button type="button" (click)="isLoggedIn()" class="btn try-button">Try a quick search</button>
                     </div>
                 </div>
             </div>
