@@ -37,8 +37,6 @@ export class SignupComponent implements OnInit {
     this.spinner.show();
     this.lservice.signup(this.signupForm.value).subscribe(
       success => {
-        console.log(this.signupForm.value);
-        console.log(success);
         this.spinner.hide();
         Swal.fire({
           title: 'Success!',

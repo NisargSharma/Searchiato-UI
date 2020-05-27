@@ -20,6 +20,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  getStarted() {
+    console.log("checking token");
+    if(localStorage.getItem('token')) {
+      this.router.navigateByUrl('/search');
+    } else {
+      this.router.navigateByUrl('signup');
+    }
+  }
+
   ngOnInit(): void {
     this.spinner.show();
     setTimeout(() => {

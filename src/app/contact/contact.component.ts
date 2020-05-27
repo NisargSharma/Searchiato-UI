@@ -30,8 +30,6 @@ export class ContactComponent implements OnInit {
   contact() {
     this.cservice.contact(this.contactForm.value).subscribe(
       success => {
-        console.log(this.contactForm.value);
-        console.log(success);
         this.contactForm.reset();
         Swal.fire({
           title: 'Success!',

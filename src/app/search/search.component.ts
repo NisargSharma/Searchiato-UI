@@ -49,6 +49,14 @@ export class SearchComponent implements OnInit {
       this.sservice.getDataByEmail(this.searchForm.value).subscribe((success: any) => {
         this.searchData = success.data;
         console.log("searchData", this.searchData);
+        if(this.searchData.length === 0) {
+          Swal.fire({
+            title: 'No Results Found',
+            text: 'Try searching for someone else',
+            icon: 'error',
+            confirmButtonText: 'Try again',
+          });
+        }
         this.spinner.hide();
       },
       (error: any) => {
